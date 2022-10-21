@@ -1,0 +1,66 @@
+vocabulario = {"eumenorrea": 'Menstruación normal en duración ritmo y cantidad' , "hipomenorrea" : 'Disminución en cantidad y duración de la menstruación, menor dos dias', "oligomenorrea": 'Disminución en número de menstruaciones, con más de 35 dias de frecuencia' , "polimenorrea" : 'Aumento de numero de menstruaciones, menor de 21 dias', "menorragia":'Hemorragia menstrual larga y abundante mayor de  7 dias y 80 ml', "metrorragia": 'Hemorragia uterina irregular que no guarda relación con el ciclo menstrual',
+               "hipermenorrea": 'Menstruación abundante y que puede durar los dias habituales', "dismenorrea": 'Menstruación dolorosa' , "amenorrea": 'Ausencia de la menstruación',
+               "menopausia" : 'Amenorrea de un año de duración', "leucorrea": 'flujo vaginal' , "endometriosis": 'Presencia de mucosa endometrial fuera de la cavidad uterina', 
+               "sinusorragia": 'Sangrado durante el coito', "dispareunia":'Dolor que se experimenta en la penetración', "cistocele":'Prolapso vesical' , "libido":'Apetito sexual', 
+               "priapismo": 'Erección persistente y dolorosa', "criptorquidia": 'Testículos no descendidos', "poliorquidismo":'Presencia de más de dos testículos',"orquitis": 'Inflamación de los testículos',
+               "impotencia": 'Incapacidad de realizar la cópula', "andropausia": 'menopausia de los hombres', "polucionnocturna": 'Expulsión de semen durante el sueño', 
+               "espermatorrea": 'Derrame involuntario de semen sin orgasmo', "hemospermia":'Presencia de sangre en liquido seminal', "hidrocele":'Acumulación de liquido alrededor de los testiculos',
+               "hematocele": 'Sangre alrededor de los testiculos', "hidrohematocele": 'Acumulación de líquido seroso y sangre alrededor de los testiculos', 
+               "quilocele": 'Linfa alrededor de los testiculos', "piocele": 'Pus alrededor de los testiculos', "varicocele":'Venas varices en el escroto', "neumocele":'Aire en el escroto',
+               "fimosis":'Estrechez de prepucio que no se puede retraer sobre el glande', "parafimosis":'Prepucio no se puede volver a jalar de nuevo sobre el glande', 
+               "hipospadia": 'Orificio uretral por debajo de el pene y no en la punta de el mismo', "piouretrorrea":'Salida de pus por el pene' , 
+               "nicturia": 'Aumento en la producción y emisión de orina durante la noche', "anuria": 'Ausencia total de orina o < 100 ml', "oliguria": 'Disminución de volumen de la micción < 500ml',
+               "poliuria": 'Aumento de el volumen de la micción > 3 L' , "opsiuria": 'Retraso en la eliminación de el agua digerida', "disuria": 'Emisión dolorosa o dificultosa de orina',
+               "polaquiuria": 'Micción frecuente y de escaso volumen', "enuresis": 'Perdida involuntaria de orina durante el sueño' , "piuria": 'Orina con pus', "hematuria": 'Sangre en la orina',
+               "estranguria": 'Micción dolorosa que se da gota a gota con tenesmo vesical', "neumaturia": 'Burbujas de aire en la orina', "coluria": 'Orina color cafe debido a la presencia de bilirrubina conjugada',
+               "tenesmo":'Sensación de evacuar luego de haber evacuado',"proctalgia":'Dolor anorectal',"proctitis":'Inflamación anorectal',"hemouretrorrea":'salida de sangre por el pene',
+               "balanitis":'Inflamación surco balanoprepusiano',"cistitis":'Infección urinaria que afecta a la vejiga',"hidronefrosis":'Hinchazón de un riñón por exceso de líquido debido a la acumulación de orina.',
+               "pielonefritis":'Inflamación renal ocasionada por una infección bacteriana',"mastodinia":'Dolor de mama relacionado con el ciclo menstrual',"mastralgia":'Dolor de mama no relacionado con ciclo menstrual',
+               "bartolinitis":'Inflamación llena de fluido (quiste) en las glándulas de Bartolino, encargadas de lubricar la vagina.'}
+
+import random
+
+ivan = list(vocabulario.keys())
+
+heylin=0
+for i in range(0,1000):
+  y = random.choice(ivan)
+  sign = vocabulario[y]
+
+  rta = input("El término usado para " + str(sign) + " es:")
+
+  try:
+
+    if rta.lower().replace(" ","") == "salir":
+      print("Gracias por jugar")
+      print("Sus Heylinpuntos son: ", heylin)
+      print("Su nota es: ", heylin*5.0/60)
+      break
+
+    if rta.lower().replace(" ","") == y:
+      print("Respuesta correcta")
+      heylin += 1
+
+      ivan.remove(y)
+    
+    elif rta.lower() == "no se":
+      print("Sigue estudiando. El término usado es: ", y)
+      heylin = heylin - 1
+
+    else:
+      print("Respuesta incorrecta. El término usado es: ", y)
+      heylin = heylin - 1
+
+    if len(ivan)==0:
+      print("Gracias por jugar.")
+      print("Sus Heylinpuntos son: ", heylin)
+      print("Su nota es: ", heylin*5.0/60)
+
+      if heylin == len(terminos):
+        print("TE GANASTE UN ABRAZO DE HEYLIN, CON HEY DE NO JOÑE HEY HEY")
+    
+
+      break
+
+  except Exception:
+    print("Término mal escrito o no se encuentra en el diccionario. Pasemos a la siguiente")
