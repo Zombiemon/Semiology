@@ -18,6 +18,9 @@ vocabulario = {"eumenorrea": 'Menstruación normal en duración ritmo y cantidad
                "pielonefritis":'Inflamación renal ocasionada por una infección bacteriana',"mastodinia":'Dolor de mama relacionado con el ciclo menstrual',"mastralgia":'Dolor de mama no relacionado con ciclo menstrual',
                "bartolinitis":'Inflamación llena de fluido (quiste) en las glándulas de Bartolino, encargadas de lubricar la vagina.'}
 
+terminos = list(vocabulario.keys())
+
+
 import random
 
 ivan = list(vocabulario.keys())
